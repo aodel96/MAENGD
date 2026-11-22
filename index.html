@@ -98,10 +98,9 @@ sup { font-family: var(--display); font-size: 0.28em; font-weight: 600; vertical
 .tag { border: 1px solid var(--ink); padding: 2px 6px; font-family: var(--display); font-size: 10px; font-weight: 600; text-transform: uppercase; }
 .arrow { font-family: var(--display); font-size: 16px; transition: transform .2s ease; }
 .work:hover .arrow { transform: translate(3px, -3px); }
-.thumb { aspect-ratio: 4 / 3; position: relative; display: grid; place-items: center; overflow: hidden; background: #f6f3f3; }
-.thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.blob { width: 62%; aspect-ratio: 1; border-radius: 42% 58% 63% 37% / 45% 40% 60% 55%; transition: transform .5s cubic-bezier(.2,.8,.2,1), border-radius .5s ease; }
-.work:hover .blob { transform: rotate(18deg) scale(1.06); border-radius: 58% 42% 38% 62% / 55% 60% 40% 45%; }
+.thumb { aspect-ratio: 808 / 632; position: relative; display: grid; place-items: center; overflow: hidden; background: #f6f3f3; }
+.thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .5s cubic-bezier(.2,.8,.2,1); }
+.work:hover .thumb img { transform: scale(1.04); }
 .work h3 { font-family: var(--display); font-weight: 800; font-size: 13px; text-transform: uppercase; line-height: 1.2; }
 .work p { font-size: 12px; color: #6d6767; margin-top: 2px; }
 .work:hover { background: #fff8f8; }
@@ -134,7 +133,7 @@ sup { font-family: var(--display); font-size: 0.28em; font-weight: 600; vertical
 .contact { border-top: 1px solid var(--ink); padding: 18px 0 40px; }
 .big { font-family: var(--display); font-weight: 900; font-stretch: 118%; text-transform: uppercase; font-size: clamp(56px, 13.5vw, 210px); line-height: 0.86; letter-spacing: -0.05em; margin: 28px 0; display: block; transition: color .2s ease; }
 .big:hover { color: #c24a86; }
-.contact-row { display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: end; }
+.contact-row { display: flex; justify-content: flex-start; gap: 24px; align-items: end; }
 .btn { display: inline-flex; align-items: center; gap: 10px; background: var(--ink); color: var(--bg); padding: 14px 22px; font-family: var(--display); font-weight: 700; font-size: 13px; text-transform: uppercase; transition: background .2s ease; }
 .btn:hover { background: #c24a86; }
 footer { border-top: 1px solid var(--ink); padding: 16px 0 28px; }
@@ -143,7 +142,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
 @media (prefers-reduced-motion: reduce) {
   .track { animation: none; }
   html { scroll-behavior: auto; }
-  .blob, .work:hover .blob { transition: none; transform: none; }
+  .thumb img, .work:hover .thumb img { transition: none; transform: none; }
 }
 @media (max-width: 900px) {
   body { background-size: 100% 120px, calc(100% / 4) 100%; }
@@ -198,17 +197,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
         <span class="lbl">Game UI/UX<br>5 Years+</span>
       </div>
     </div>
-    <div class="scroll-hint"><a class="chip-blk" href="#doors">Scroll<br>to start</a></div>
-  </section>
-
-  <!-- 2. 두 독자용 입구 -->
-  <section class="wrap doors" id="doors" aria-label="방문 목적별 바로가기">
-    <span class="lbl">Who's visiting?</span>
-    <div class="doorlist">
-      <a class="door" href="#about">Hiring<sup>(01)</sup><small>채용 담당자: 경력과 대표 작업 보기</small></a>
-      <a class="door" href="#contact">Collaboration<sup>(02)</sup><small>협업 제안: 연락 방법 보기</small></a>
-      <a class="door" href="#work">Selected Work<sup>(06)</sup><small>작업물 바로 보기</small></a>
-    </div>
+    <div class="scroll-hint"><a class="chip-blk" href="#work">Scroll<br>to start</a></div>
   </section>
 
   <!-- 3. 작업물 -->
@@ -218,36 +207,36 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
         <h2 class="lbl" id="work-h">Selected Work (06)</h2>
         <a class="lbl" href="https://www.behance.net/aodel" target="_blank" rel="noopener">View all on Behance +</a>
       </div>
-      <!-- 실제 이미지 넣는 법: .thumb 안의 <div class="blob"> 대신 <img src="images/파일명.jpg" alt="설명"> -->
+      <!-- 썸네일: Behance 대표 이미지를 불러옵니다. 바꾸려면 img의 src 주소를 교체 -->
       <div class="works">
         <a class="work" href="https://www.behance.net/gallery/212870783/Lets-Go-Cat-City-Title" target="_blank" rel="noopener">
           <div class="head"><span class="tag">Title Screen</span><span class="arrow" aria-hidden="true">&#8599;</span></div>
-          <div class="thumb"><div class="blob" style="background:radial-gradient(circle at 30% 30%, var(--p1), var(--p2))"></div></div>
+          <div class="thumb"><img src="https://mir-s3-cdn-cf.behance.net/projects/808/16fd23212870783.Y3JvcCwxNDAwLDEwOTUsMCww.jpg" alt="Let's Go Cat City Title 대표 이미지" loading="lazy" width="808" height="632"></div>
           <div><h3>Let's Go Cat City Title</h3><p>타이틀 화면</p></div>
         </a>
         <a class="work" href="https://www.behance.net/gallery/207846397/Lets-Go-Cat-City-Drawing" target="_blank" rel="noopener">
           <div class="head"><span class="tag">Drawing</span><span class="arrow" aria-hidden="true">&#8599;</span></div>
-          <div class="thumb"><div class="blob" style="background:radial-gradient(circle at 30% 30%, var(--p5), var(--p4))"></div></div>
+          <div class="thumb"><img src="https://mir-s3-cdn-cf.behance.net/projects/808/7f4b31207846397.Y3JvcCwxMzM0LDEwNDMsNDIsMjE0.png" alt="Let's Go Cat City Drawing 대표 이미지" loading="lazy" width="808" height="632"></div>
           <div><h3>Let's Go Cat City Drawing</h3><p>드로잉</p></div>
         </a>
         <a class="work" href="https://www.behance.net/gallery/182818821/Casual-Game-Concept-Ui" target="_blank" rel="noopener">
           <div class="head"><span class="tag">Casual</span><span class="arrow" aria-hidden="true">&#8599;</span></div>
-          <div class="thumb"><div class="blob" style="background:radial-gradient(circle at 30% 30%, var(--p2), var(--p3))"></div></div>
+          <div class="thumb"><img src="https://mir-s3-cdn-cf.behance.net/projects/808/d40106182818821.Y3JvcCw4ODgsNjk0LDI1NSw0Mw.png" alt="Casual Game Concept UI 대표 이미지" loading="lazy" width="808" height="632"></div>
           <div><h3>Casual Game Concept UI</h3><p>캐주얼 게임 컨셉 UI</p></div>
         </a>
         <a class="work" href="https://www.behance.net/gallery/128702177/MMORPG-Game-UI" target="_blank" rel="noopener">
           <div class="head"><span class="tag">MMORPG</span><span class="arrow" aria-hidden="true">&#8599;</span></div>
-          <div class="thumb"><div class="blob" style="background:radial-gradient(circle at 30% 30%, var(--p3), var(--p4))"></div></div>
+          <div class="thumb"><img src="https://mir-s3-cdn-cf.behance.net/projects/808/e49103128702177.Y3JvcCwxMTUwLDkwMCwyMjUsMA.png" alt="MMORPG Game UI 대표 이미지" loading="lazy" width="808" height="632"></div>
           <div><h3>MMORPG Game UI</h3><p>MMORPG 게임 UI</p></div>
         </a>
         <a class="work" href="https://www.behance.net/gallery/126760727/Lords-Mobile-Game-Ui" target="_blank" rel="noopener">
           <div class="head"><span class="tag">Mobile</span><span class="arrow" aria-hidden="true">&#8599;</span></div>
-          <div class="thumb"><div class="blob" style="background:radial-gradient(circle at 30% 30%, var(--p4), var(--p1))"></div></div>
+          <div class="thumb"><img src="https://mir-s3-cdn-cf.behance.net/projects/808/6d713c126760727.Y3JvcCw4NTMsNjY3LDI3NiwxMzM.png" alt="Lords Mobile Game UI 대표 이미지" loading="lazy" width="808" height="632"></div>
           <div><h3>Lords Mobile Game UI</h3><p>모바일 게임 UI</p></div>
         </a>
         <a class="work" href="https://www.behance.net/gallery/119667059/Friends-Town-Game-Ui" target="_blank" rel="noopener">
           <div class="head"><span class="tag">Casual</span><span class="arrow" aria-hidden="true">&#8599;</span></div>
-          <div class="thumb"><div class="blob" style="background:radial-gradient(circle at 30% 30%, var(--p1), var(--p5))"></div></div>
+          <div class="thumb"><img src="https://mir-s3-cdn-cf.behance.net/projects/808/af6041119667059.Y3JvcCwxMDU1LDgyNSw3MDgsMjA2.png" alt="Friends Town Game UI 대표 이미지" loading="lazy" width="808" height="632"></div>
           <div><h3>Friends Town Game UI</h3><p>게임 UI</p></div>
         </a>
       </div>
@@ -296,7 +285,6 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
       <h2 class="lbl" id="contact-h">Contact</h2>
       <a class="big" href="https://www.behance.net/aodel" target="_blank" rel="noopener">Let's talk<sup>(+)</sup></a>
       <div class="contact-row">
-        <p>채용 문의와 협업 제안 모두 받습니다. 현재는 Behance 메시지로 연락할 수 있습니다.</p>
         <!-- TODO: 이메일이 정해지면 버튼을 추가합니다. -->
         <a class="btn" href="https://www.behance.net/aodel" target="_blank" rel="noopener">Message on Behance &#8599;</a>
       </div>
